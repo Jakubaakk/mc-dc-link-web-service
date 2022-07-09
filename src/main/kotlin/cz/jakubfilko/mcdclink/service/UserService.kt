@@ -21,7 +21,7 @@ class UserService(private val userRepository: UserRepository) {
         return fromUserEntityToUserDto(getUserEntityByMinecraftName(minecraftNickname))
     }
 
-    fun getUserByDiscordId(discordId: Int): UserDto {
+    fun getUserByDiscordId(discordId: String): UserDto {
         return fromUserEntityToUserDto(getUserEntityByDiscordId(discordId))
     }
 
@@ -46,7 +46,7 @@ class UserService(private val userRepository: UserRepository) {
         return fromUserEntityToUserDto(userRepository.save(entity))
     }
 
-    fun updateUserByDiscordId(discordId: Int, user: UserDto): UserDto {
+    fun updateUserByDiscordId(discordId: String, user: UserDto): UserDto {
         val entity = getUserEntityByDiscordId(discordId)
         return fromUserEntityToUserDto(updateUserEntity(entity, fromUserDtoToUserEntity(user)))
     }
@@ -56,7 +56,7 @@ class UserService(private val userRepository: UserRepository) {
         return fromUserEntityToUserDto(updateUserEntity(entity, fromUserDtoToUserEntity(user)))
     }
 
-    private fun getUserEntityByDiscordId(discordId: Int) = userRepository.findByDiscordId(discordId)
+    private fun getUserEntityByDiscordId(discordId: String) = userRepository.findByDiscordId(discordId)
         ?: throw UserNotFoundException("User with discordId: $discordId was not found")
 
     private fun getUserEntityByMinecraftName(minecraftNickname: String) = userRepository.findByMinecraftNickname(minecraftNickname)

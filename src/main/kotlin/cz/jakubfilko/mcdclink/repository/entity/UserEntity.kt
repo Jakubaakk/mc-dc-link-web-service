@@ -13,7 +13,7 @@ class UserEntity(
     @GeneratedValue
     var id: UUID?,
     var minecraftNickname: String?,
-    var discordId: Int?,
+    var discordId: String?,
     var verified: Boolean = false
 ) {
 }
