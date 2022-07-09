@@ -1,0 +1,10 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: mcdclink
+    password: mcdclink123
+    url: jdbc:mysql://localhost:33306/mcdclink?useSSL=false
+  flyway:
+    schemas: mcdclink
