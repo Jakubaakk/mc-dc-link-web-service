@@ -8,6 +8,9 @@ on:
   push:
     branches: [ "main" ]
 
+env:
+  docker-repo: "ghcr.io/jakubaakk/mcdclink"
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -20,4 +23,10 @@ jobs:
           java-version: 17
 
       - name: Print current version
-        run: "./gradlew cV -q -Prelease.quiet"
+        id: get-version
+        run: echo "::set-output name=VERSION::$(./gradlew cV -q -Prelease.quiet)"
+
+      - name: Run jib
+        env:
+          IMAGE: "${env.docker-repo}:${steps.get-version.outputs.VERSION}"
+        run: "./gradlew jib"
