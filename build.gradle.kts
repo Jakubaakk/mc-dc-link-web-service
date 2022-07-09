@@ -75,9 +75,3 @@ tasks.register("currentVersion") {
         println(version)
     }
 }
-
-tasks.register("bumpVersion") {
-    doLast {
-        File
-    }
-}
