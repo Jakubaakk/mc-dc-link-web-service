@@ -19,7 +19,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: "${DB_PASSWORD}"
       SPRING_DATASOURCE_URL: "jdbc:mysql://db:3306/${DB_NAME}?useSSL=false"
     ports:
-      - "8888:8080"
+      - "8888:8888"
     entrypoint: [ '/bin/sh', '-c' ]
     command: |
       "
