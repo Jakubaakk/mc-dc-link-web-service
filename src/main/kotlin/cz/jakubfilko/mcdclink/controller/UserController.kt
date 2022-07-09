@@ -58,13 +58,13 @@ class UserController(
     }
 
     @GetMapping("/byDiscordId/{discordId}")
-    fun getUserByDiscordId(@PathVariable("discordId", required = true) discordId: Int): UserDto {
+    fun getUserByDiscordId(@PathVariable("discordId", required = true) discordId: String): UserDto {
         return userService.getUserByDiscordId(discordId)
     }
 
     @PutMapping("/byDiscordId/{discordId}")
     fun updateUserByDiscordId(
-        @PathVariable("discordId", required = true) discordId: Int, @RequestBody user: UserDto
+        @PathVariable("discordId", required = true) discordId: String, @RequestBody user: UserDto
     ): UserDto {
         return userService.updateUserByDiscordId(discordId, user)
     }

@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "cz.jakubfilko"
-version = "0.1.0"
+version = "0.1.1"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 val aspectjVersion = "1.9.9.1"

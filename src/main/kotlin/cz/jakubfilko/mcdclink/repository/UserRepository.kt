@@ -8,5 +8,5 @@ import java.util.UUID
 @Repository
 interface UserRepository : CrudRepository<UserEntity, UUID> {
     fun findByMinecraftNickname(minecraftNickname: String): UserEntity?
-    fun findByDiscordId(discordId: Int): UserEntity?
+    fun findByDiscordId(discordId: String): UserEntity?
 }
